@@ -1,0 +1,77 @@
+{
+ "model": "audio-cpp/audio.cpp-gguf@33120a4cfdf0d56786db934a03a093d4675de938/VoxMel-TTS-GGUF/voxmel-tts-0.6b-q8_0.gguf",
+ "presets": [
+  {
+   "id": "voxmel-en-woman-1",
+   "display_name": "English woman 1",
+   "language": "en",
+   "clip": "en-woman-1.wav",
+   "text": "Good morning. Today we have a long road ahead of us, so it would be wise to set off early, before the rain begins.",
+   "seed": 3,
+   "f0_hz": 183
+  },
+  {
+   "id": "voxmel-en-woman-2",
+   "display_name": "English woman 2",
+   "language": "en",
+   "clip": "en-woman-2.wav",
+   "text": "Good morning. Today we have a long road ahead of us, so it would be wise to set off early, before the rain begins.",
+   "seed": 4,
+   "f0_hz": 174
+  },
+  {
+   "id": "voxmel-en-man-1",
+   "display_name": "English man 1",
+   "language": "en",
+   "clip": "en-man-1.wav",
+   "text": "Good morning. Today we have a long road ahead of us, so it would be wise to set off early, before the rain begins.",
+   "seed": 8,
+   "f0_hz": 94
+  },
+  {
+   "id": "voxmel-en-man-2",
+   "display_name": "English man 2",
+   "language": "en",
+   "clip": "en-man-2.wav",
+   "text": "Good morning. Today we have a long road ahead of us, so it would be wise to set off early, before the rain begins.",
+   "seed": 5,
+   "f0_hz": 108
+  },
+  {
+   "id": "voxmel-zh-woman-1",
+   "display_name": "Mandarin woman 1",
+   "language": "zh",
+   "clip": "zh-woman-1.wav",
+   "text": "早上好。今天我们还有很长的路要走，所以最好早点出发，趁着还没下雨。",
+   "seed": 6,
+   "f0_hz": 260
+  },
+  {
+   "id": "voxmel-zh-woman-2",
+   "display_name": "Mandarin woman 2",
+   "language": "zh",
+   "clip": "zh-woman-2.wav",
+   "text": "早上好。今天我们还有很长的路要走，所以最好早点出发，趁着还没下雨。",
+   "seed": 4,
+   "f0_hz": 223
+  },
+  {
+   "id": "voxmel-zh-man-1",
+   "display_name": "Mandarin man 1",
+   "language": "zh",
+   "clip": "zh-man-1.wav",
+   "text": "早上好。今天我们还有很长的路要走，所以最好早点出发，趁着还没下雨。",
+   "seed": 8,
+   "f0_hz": 133
+  },
+  {
+   "id": "voxmel-zh-man-2",
+   "display_name": "Mandarin man 2",
+   "language": "zh",
+   "clip": "zh-man-2.wav",
+   "text": "早上好。今天我们还有很长的路要走，所以最好早点出发，趁着还没下雨。",
+   "seed": 7,
+   "f0_hz": 141
+  }
+ ]
+}

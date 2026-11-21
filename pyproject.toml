@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitld-addon-voxmel"
+version = "26.11.1"
+description = "Subtitld add-on: English and Mandarin text-to-speech and voice cloning with VoxDance Lab's VoxMel"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Subtitld", email = "jbopen@gmail.com" }]
+requires-python = ">=3.10"
+
+# Speech is audio.cpp, built by tools/build_native.py into build/assets/ and
+# loaded with ctypes; reference clips that are not WAV go through the host's
+# ffmpeg; the download uses the standard library. Nothing else is needed.
+dependencies = []
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.10"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+voxmel-addon = "voxmel_addon.__main__:main"
+
+[tool.setuptools]
+packages = ["voxmel_addon"]
+
+[tool.setuptools.package-data]
+voxmel_addon = ["presets/*.wav", "presets/presets.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["weights: needs the 1.04 GB VoxMel model, named by VOXMEL_TEST_MODEL (local runs only)"]

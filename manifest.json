@@ -1,0 +1,151 @@
+{
+  "manifest_version": 1,
+  "id": "voxmel",
+  "version": "26.11.1",
+  "display_name": "VoxMel (offline, voice clone, 2 languages)",
+  "summary": "VoxDance Lab's VoxMel speaks English and Mandarin at 24 kHz, in the speaker's own voice cloned from the video and its subtitles, or in one of eight preset voices. Close clones within a language; on a CPU each second of speech takes two to four seconds. The 1.04 GB model downloads on first use and needs about 2 GB of memory.",
+  "author": "Subtitld",
+  "homepage": "https://github.com/Subtitld/addon-voxmel",
+  "license": "Apache-2.0 (add-on, VoxMel weights and preset voices, audio.cpp); MIT (Vocos vocoder, ggml, cJSON, libyaml, utf8proc, llama.cpp's tokenizer)",
+  "executable": "bin/voxmel-addon",
+  "protocol": 1,
+  "startup_timeout_sec": 30,
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "tasks": [
+    "tts.synthesize"
+  ],
+  "compute": "cpu",
+  "accelerators": [
+    "mps"
+  ],
+  "voice_clone": true,
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "voices": [
+    {
+      "id": "voxmel-clone",
+      "language": "*",
+      "display_name": "Speaker's own voice (cloned from the video)",
+      "requires": [
+        "voice_ref_audio",
+        "voice_ref_text"
+      ]
+    },
+    {
+      "id": "voxmel-en-woman-1",
+      "language": "en",
+      "display_name": "English woman 1"
+    },
+    {
+      "id": "voxmel-en-woman-2",
+      "language": "en",
+      "display_name": "English woman 2"
+    },
+    {
+      "id": "voxmel-en-man-1",
+      "language": "en",
+      "display_name": "English man 1"
+    },
+    {
+      "id": "voxmel-en-man-2",
+      "language": "en",
+      "display_name": "English man 2"
+    },
+    {
+      "id": "voxmel-zh-woman-1",
+      "language": "zh",
+      "display_name": "Mandarin woman 1"
+    },
+    {
+      "id": "voxmel-zh-woman-2",
+      "language": "zh",
+      "display_name": "Mandarin woman 2"
+    },
+    {
+      "id": "voxmel-zh-man-1",
+      "language": "zh",
+      "display_name": "Mandarin man 1"
+    },
+    {
+      "id": "voxmel-zh-man-2",
+      "language": "zh",
+      "display_name": "Mandarin man 2"
+    }
+  ],
+  "models": [
+    {
+      "id": "voxmel",
+      "display_name": "VoxMel 0.6B (8-bit)",
+      "repo": "audio-cpp/audio.cpp-gguf",
+      "revision": "33120a4cfdf0d56786db934a03a093d4675de938",
+      "size_mb": 992,
+      "license": "Apache-2.0 (VoxMel); MIT (Vocos)",
+      "bundled": false,
+      "default": true
+    }
+  ],
+  "disk_required_mb": 1200,
+  "ram_required_mb": 2048,
+  "config_schema": {
+    "fields": [
+      {
+        "key": "steps",
+        "type": "int",
+        "label": "Quality steps",
+        "default": 32,
+        "min": 8,
+        "max": 32,
+        "step": 1,
+        "help": "Flow steps for each moment of speech. 32 is VoxMel's default; fewer is faster, with less detail."
+      },
+      {
+        "key": "cfg",
+        "type": "number",
+        "label": "Text guidance",
+        "default": 3.5,
+        "min": 0.0,
+        "max": 8.0,
+        "step": 0.1,
+        "help": "How closely the speech follows the text. VoxMel's default is 3.5."
+      },
+      {
+        "key": "speaker_cfg",
+        "type": "number",
+        "label": "Voice guidance",
+        "default": 3.0,
+        "min": 0.0,
+        "max": 8.0,
+        "step": 0.1,
+        "help": "How closely a cloned voice follows the clip. VoxMel's default is 3.0."
+      },
+      {
+        "key": "threads",
+        "type": "int",
+        "label": "CPU threads",
+        "default": 0,
+        "min": 0,
+        "max": 256,
+        "step": 1,
+        "help": "0 picks the performance cores on a CPU that also has efficiency cores, else one thread per core. Fewer leaves the computer more responsive while dubbing."
+      },
+      {
+        "key": "voice_ref_audio",
+        "type": "file",
+        "label": "Fallback reference clip",
+        "help": "Used by the speaker's own voice when Subtitld has no clip of the speaker to send: 3 to 15 seconds of one person speaking, WAV preferred."
+      },
+      {
+        "key": "voice_ref_text",
+        "type": "string",
+        "label": "Fallback reference transcript",
+        "help": "The exact words spoken in the fallback clip. VoxMel needs them to clone the voice."
+      }
+    ]
+  }
+}

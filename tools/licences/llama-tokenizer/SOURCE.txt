@@ -1,0 +1,6 @@
+The BPE tokenizer audio.cpp compiles in for VoxMel's text (Qwen2.5's
+vocabulary): external/llama_tokenizer/ in the audio.cpp tree (unicode.cpp,
+unicode-data.cpp, bpe-core.cpp). It is code from llama.cpp
+(https://github.com/ggml-org/llama.cpp), under the MIT licence in LICENSE;
+audio.cpp ships it without a licence file of its own, so this notice is
+supplied by the add-on.
