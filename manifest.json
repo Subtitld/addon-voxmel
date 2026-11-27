@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "id": "voxmel",
-  "version": "26.11.1",
+  "version": "26.11.2",
   "display_name": "VoxMel (offline, voice clone, 2 languages)",
   "summary": "VoxDance Lab's VoxMel speaks English and Mandarin at 24 kHz, in the speaker's own voice cloned from the video and its subtitles, or in one of eight preset voices. Close clones within a language; on a CPU each second of speech takes two to four seconds. The 1.04 GB model downloads on first use and needs about 2 GB of memory.",
   "author": "Subtitld",

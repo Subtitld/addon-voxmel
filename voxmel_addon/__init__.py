@@ -8,6 +8,6 @@ The package exists so the entry point can run both from source
 (`bin/voxmel-addon`).
 """
 
-__version__ = '26.11.1'
+__version__ = '26.11.2'
 ADDON_ID = 'voxmel'
 PROTOCOL_VERSION = 1
